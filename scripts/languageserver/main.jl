@@ -34,12 +34,12 @@ try
         error("Invalid number of arguments passed to julia language server.")
     end
 
-    debug_mode = if Base.ARGS[2] == "--debug=yes"
-        true
-    elseif Base.ARGS[2] == "--debug=no"
-        false
-    else
-        error("Invalid argument passed.")
+    #For debugging level, we want to avoid turning on debug for the julia interpreter, since it can cause world age issues. It's better to turn on debug logging level for specific modules or module_roots, instead of 'all'
+    debug_arg = Base.ARGS[2]
+    if startswith(debug_arg, "--debug=")
+        ENV["JULIA_DEBUG"] = debug_arg[length("--debug=")+1:end]
+    elseif !isempty(debug_arg)
+        error("""Argument 2 will be used to set JULIA_DEBUG environment variable. It should look like "--debug=[all|module1,module1]" """)
     end
 
     detached_mode = if Base.ARGS[8] == "--detached=yes"
@@ -48,10 +48,6 @@ try
         false
     else
         error("Invalid argument passed.")
-    end
-
-    if debug_mode
-        ENV["JULIA_DEBUG"] = "all"
     end
 
     if detached_mode

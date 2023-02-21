@@ -44,7 +44,7 @@
             "juliaEnv": "${workspaceFolder}/scripts/environments/languageserver",
             "args": [
                 "", // Environment
-                "--debug=yes",
+                "--debug=loading,LanguageServer",
                 "", // Telemetry pipename
                 "", // Old depot path,
                 "${workspaceFolder}/globalstorage", // Storage path
