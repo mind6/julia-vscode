@@ -43,11 +43,11 @@
             "cwd": "${workspaceFolder}/scripts/languageserver",
             "juliaEnv": "${workspaceFolder}/scripts/environments/languageserver",
             "args": [
-                "", // Environment
-                "--debug=loading,LanguageServer",
+                "",     // The LS instance doesn't have access to Julia environment settings of the opened project; you may need to explicitly provide it here.
+                "--debug=main,loading,LanguageServer,StaticLint,SymbolServer",   // Whatever comes after --debug= will be used to set the JULIA_DEBUG environment variable.
                 "", // Telemetry pipename
                 "", // Old depot path,
-                "${workspaceFolder}/globalstorage", // Storage path
+                "${workspaceFolder}/globalstorage/julialang.language-julia", // Storage path. Having a dot or dash in basename may expose caching issues.
                 "download", // useSymserverDownloads
                 "https://www.julia-vscode.org/symbolcache", // symbolcache_upstream
                 "--detached=yes"

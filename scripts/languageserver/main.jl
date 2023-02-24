@@ -10,7 +10,7 @@ else
     Pkg.activate(joinpath(@__DIR__, "..", "environments", "languageserver", "fallback"))
 end
 
-@debug "Julia started at $(round(Int, time()))"
+@info "Julia started at $(round(Int, time()))"
 
 using Logging
 global_logger(ConsoleLogger(stderr))
@@ -41,6 +41,7 @@ try
     elseif !isempty(debug_arg)
         error("""Argument 2 will be used to set JULIA_DEBUG environment variable. It should look like "--debug=[all|module1,module1]" """)
     end
+    @debug "LS arguments: " Base.ARGS       # @debug logging available from here
 
     detached_mode = if Base.ARGS[8] == "--detached=yes"
         true

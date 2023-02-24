@@ -23,5 +23,14 @@
     "eslint.lintTask.enable": true,
 	"julia.environmentPath": "./scripts/environments/development",
 	"editor.glyphMargin": true,
-	"editor.detectIndentation": true
+    "editor.detectIndentation": true,
+    "julia.debuggerDefaultCompiled": [
+        "ALL_MODULES_EXCEPT_MAIN",
+        "-LanguageServer",
+        "-CSTParser",
+        "-Tokenize",
+        "-StaticLint",
+        "-SymbolServer"
+    ],
+    "julia.showRuntimeDiagnostics": false
 }
