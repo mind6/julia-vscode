@@ -43,7 +43,7 @@
             "cwd": "${workspaceFolder}/scripts/languageserver",
             "juliaEnv": "${workspaceFolder}/scripts/environments/languageserver",
             "args": [
-                "",     // The LS instance doesn't have access to Julia environment settings of the opened project; you may need to explicitly provide it here.
+                "C:\\Users\\kirby\\MyDrive\\Documents\\fourthwave",     // The LS instance doesn't have access to Julia environment settings of the opened project; you may need to explicitly provide it here.
                 "--debug=main,loading,LanguageServer,StaticLint,SymbolServer",   // Whatever comes after --debug= will be used to set the JULIA_DEBUG environment variable.
                 "", // Telemetry pipename
                 "", // Old depot path,

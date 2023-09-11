@@ -22,6 +22,7 @@
     },
     "eslint.lintTask.enable": true,
 	"julia.environmentPath": "./scripts/environments/development",
+	"julia.lint.missingrefs": "symbols",
 	"editor.glyphMargin": true,
     "editor.detectIndentation": true,
     "julia.debuggerDefaultCompiled": [
